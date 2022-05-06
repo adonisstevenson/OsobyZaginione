@@ -15,13 +15,13 @@ namespace OsobyZaginione.Controllers
 
         [HttpGet]
         [Route("")]
-        [Route("list/{id?}")]
+        [Route("list/{sex?}")]
         // GET: PeopleController
-        public ActionResult Index(string id)
+        public ActionResult Index(string sex)
         {
             var people = this._manager.GetPeople();
 
-            if (!String.IsNullOrEmpty(id))
+            if (!String.IsNullOrEmpty(sex))
             {
                 ;
             }
@@ -73,10 +73,12 @@ namespace OsobyZaginione.Controllers
         // POST: PeopleController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Person personModel)
         {
             try
             {
+                var person = this._manager.UpdatePerson(personModel);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
