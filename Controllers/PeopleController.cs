@@ -23,11 +23,11 @@ namespace OsobyZaginione.Controllers
 
             if (!String.IsNullOrEmpty(id))
             {
-                Console.WriteLine("not empty");
+                ;
             }
             else
             {
-                Console.WriteLine("empty");
+                ;
             }
             
             return View(people);
